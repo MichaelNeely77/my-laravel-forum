@@ -3,17 +3,24 @@
 @section('content')
 
 
-        <div class="d-flex justify-content-end mb-2">
-        <a href="{{ route('discussion.create') }}" class="btn btn-success">Add Discussion</a>
-            </div>
 @foreach ($discussions as $discussion)
 
 <div class="card">
     <div class="card-header">
-        {{ $discussion->title }}
+        <div class="d-flex justify-content-between">
+            <div>
+                <img width="40px" height="40px" style="border-radius: 50%;" src="{{ Gravatar::src($discussion->author->email) }}" alt="">
+                <span>
+                    <strong class="ml-2">{{$discussion->author->name }}</strong>
+                </span>
+            </div>
+            <div>
+            <a href=" {{ route('discussions.show'), $discussion->slug }}" class="btn btn-success btn-sm">View</a>
+            </div>
+        </div>
     </div>
 
-    <div class="card-body">
+    <div class="card-body" >
         {!! $discussion->content !!}
     </div>
 </div>
