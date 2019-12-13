@@ -4,12 +4,17 @@
 
 
 
-    <div class="card">
-        <div class="card-header">Dashboard</div>
+<div class="card">
 
-        <div class="card-body">
-            Dashboard
+    @include('partials.discussion-header')
+    <div class="card-body" >
+        <div class="text-center">
+                <strong>{{ $discussion->title }}</strong>
         </div>
+
+        <hr>
+        {!! $discussion->content !!}
     </div>
+</div>
 
 @endsection

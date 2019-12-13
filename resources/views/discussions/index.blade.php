@@ -15,13 +15,16 @@
                 </span>
             </div>
             <div>
-            <a href=" {{ route('discussions.show'), $discussion->slug }}" class="btn btn-success btn-sm">View</a>
+            <a href="{{ route('discussions.show', $discussion->slug) }}" class="btn btn-success btn-sm">View</a>
             </div>
         </div>
     </div>
 
     <div class="card-body" >
-        {!! $discussion->content !!}
+        <div class="text-center">
+                <strong>{{ $discussion->title }}</strong>
+        </div>
+        
     </div>
 </div>
     

@@ -45,9 +45,9 @@ class DiscussionsController extends Controller
     {
         auth()->user()->discussions()->create([
             'title' => $request->title,
-            'slug' => str_slug($request->title),
             'content' => $request->content,
-            'channel_id' => $request->channel
+            'channel_id' => $request->channel,
+            'slug' => str_slug($request->title),
         ]);
 
         session()->flash('success', 'Discussion posted');
@@ -63,7 +63,9 @@ class DiscussionsController extends Controller
      */
     public function show(Discussion $discussion)
     {
-        // 
+        return view('discussions.show', [
+            'discussion' => $discussion        
+            ]);
     }
 
     /**
