@@ -50,7 +50,7 @@ class NewReplyAdded extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('TA new reply was added to your discussion.')
+                    ->line('A new reply was added to your discussion.')
                     ->action('View Discussion', route('discussions.show', $this->discussion->slug))
                     ->line('Thank you for using our application!');
     }
